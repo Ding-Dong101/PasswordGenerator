@@ -1,0 +1,84 @@
+.App {
+  width: 40rem;
+  overflow: hidden;
+}
+h1 {
+  color: var(--light-gray);
+  text-align: center;
+}
+.genPassword {
+  font-size: 2.2rem;
+}
+.copy-image {
+  fill: none;
+  stroke-width: 1.2rem;
+  stroke: var(--lightgreen);
+  /* stroke-width: 0.2rem; */
+  width: 2rem;
+}
+.copy-image:hover {
+  /* stroke: var(--lightgreen); */
+  fill: var(--lightgreen);
+  cursor: pointer;
+}
+.pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-area {
+  display: flex;
+  flex-direction: row;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.charNumber {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--lightgreen);
+}
+.sliderElement {
+  width: 100%;
+}
+.checkboxBox {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+/* StrengthTestBox */
+.strengthBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark);
+  padding: 1rem;
+  margin-bottom: 2.2rem;
+
+  h4 {
+    color: var(--light-gray);
+  }
+}
+.colors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
+
+  .color {
+    background-color: var(--yellow);
+    width: 1rem;
+    height: 2rem;
+  }
+}
+/* GenButn */
+.genbtn {
+  width: 100%;
+  background-color: var(--lightgreen);
+  outline: none;
+  border: none;
+  padding: 1.8rem;
+  font-weight: 600;
+}
