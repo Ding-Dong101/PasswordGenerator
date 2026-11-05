@@ -1,8 +1,8 @@
 import "./App.css";
-import CheckContainer from "./Componenets/CheckContainer";
-import Slider from "./Componenets/Slider";
-import PasswordBox from "./Componenets/PasswordBox";
-import StrengthTestBox from "./Componenets/StrengthTestBox";
+import CheckContainer from "./Components/CheckContainer";
+import Slider from "./Components/Slider";
+import PasswordBox from "./Components/PasswordBox";
+import StrengthTestBox from "./Components/StrengthTestBox";
 
 function App() {
   return (
