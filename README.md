@@ -8,28 +8,30 @@ A clean, React-based password generator with a planned **FastAPI** backend. Pick
 
 ## ✨ Features
 
-| Feature | Status |
-| --- | --- |
-| Password display box with copy icon | ✅ UI built |
-| Character length slider (1–100) | ✅ Working (updates the number shown) |
-| Checkboxes: uppercase, lowercase, numbers, symbols | ✅ UI built, not yet wired |
-| Strength meter (4 bars) | ✅ UI built, currently static ("MEDIUM") |
-| Generate button | ✅ UI built, not yet wired |
-| Real random password generation | ⏳ Planned |
-| Copy to clipboard + "Copied!" feedback | ⏳ Planned |
-| Dynamic strength rating | ⏳ Planned |
-| FastAPI backend (generate + strength endpoints) | ⏳ Planned |
+| Feature                                            | Status                                   |
+| -------------------------------------------------- | ---------------------------------------- |
+| Password display box with copy icon                | ✅ UI built                              |
+| Character length slider (1–100)                    | ✅ Working (updates the number shown)    |
+| Checkboxes: uppercase, lowercase, numbers, symbols | ✅ UI built, not yet wired               |
+| Strength meter (4 bars)                            | ✅ UI built, currently static ("MEDIUM") |
+| Generate button                                    | ✅ UI built, not yet wired               |
+| Real random password generation                    | ⏳ Planned                               |
+| Copy to clipboard + "Copied!" feedback             | ⏳ Planned                               |
+| Dynamic strength rating                            | ⏳ Planned                               |
+| FastAPI backend (generate + strength endpoints)    | ⏳ Planned                               |
 
 ---
 
 ## 🧱 Tech Stack
 
 **Frontend (now)**
+
 - React 19, Create React App (`react-scripts` 5)
 - Plain CSS
 - Testing Library + Jest (set up, tests not written yet)
 
 **Backend (planned)**
+
 - Python 3.11+ with **FastAPI** and Uvicorn
 - Pydantic for request validation
 - `secrets` module for secure randomness
@@ -110,7 +112,7 @@ App
 
 - [Node.js](https://nodejs.org/) 18 or newer
 - npm
-- *(Backend, later)* Python 3.11 or newer
+- _(Backend, later)_ Python 3.11 or newer
 
 ### Run the frontend
 
@@ -123,13 +125,13 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000).
 
-| Command | What it does |
-| --- | --- |
-| `npm start` | Dev server with hot reload |
-| `npm test` | Test runner in watch mode |
+| Command         | What it does                           |
+| --------------- | -------------------------------------- |
+| `npm start`     | Dev server with hot reload             |
+| `npm test`      | Test runner in watch mode              |
 | `npm run build` | Optimised production build in `build/` |
 
-### Run the backend *(once Part B is done)*
+### Run the backend _(once Part B is done)_
 
 ```bash
 cd backend
@@ -168,11 +170,11 @@ const [password, setPassword] = useState("");
 
 ### Planned API
 
-| Method | Endpoint | Body | Returns |
-| --- | --- | --- | --- |
-| `POST` | `/api/generate` | `{ length, uppercase, lowercase, numbers, symbols }` | `{ password }` |
-| `POST` | `/api/strength` | `{ password }` | `{ score, label }` |
-| `GET` | `/api/health` | none | `{ status: "ok" }` |
+| Method | Endpoint        | Body                                                 | Returns            |
+| ------ | --------------- | ---------------------------------------------------- | ------------------ |
+| `POST` | `/api/generate` | `{ length, uppercase, lowercase, numbers, symbols }` | `{ password }`     |
+| `POST` | `/api/strength` | `{ password }`                                       | `{ score, label }` |
+| `GET`  | `/api/health`   | none                                                 | `{ status: "ok" }` |
 
 ### 🔒 Security notes
 
@@ -191,17 +193,19 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 ## Part A: Frontend (React)
 
 ### Phase 0: Setup & housekeeping
+
 - [x] Flatten nested `password-generator/` folder into the repo root
 - [x] Rename `Componenets/` to `Components/` and fix imports
 - [x] Add `.gitignore`
 - [x] Write a detailed `README.md`
-- [ ] Push the restructure to GitHub
+- [x] Push the restructure to GitHub
 - [ ] Remove unused imports in `App.js` (`CheckContainer`, `StrengthTestBox`)
 - [ ] Rename `GenButn.js` to `GenerateButton.js` (and `CheckContainer` function name to match)
 - [ ] Update the page title and description in `public/index.html`
 - [ ] Update `public/manifest.json` (app name)
 
 ### Phase 1: Share state (the foundation)
+
 - [ ] Move `length` state from `Slider.js` up into `App.js`
 - [ ] Add `options` state (`uppercase`, `lowercase`, `numbers`, `symbols`) in `App.js`
 - [ ] Add `password` state in `App.js`
@@ -209,11 +213,13 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Set the slider default to something sensible (e.g. 10, not 0)
 
 ### Phase 2: Checkboxes
+
 - [ ] Make each checkbox a controlled input (`checked` + `onChange`)
 - [ ] Default uppercase, lowercase and numbers to on
 - [ ] Stop the user unchecking the last remaining option
 
 ### Phase 3: Password generation (client-side)
+
 - [ ] Create `src/utils/generatePassword.js`
 - [ ] Define the character pools
 - [ ] Build the pool from the checked options only
@@ -225,6 +231,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Show a placeholder before the first generation
 
 ### Phase 4: Copy to clipboard
+
 - [ ] Click handler using `navigator.clipboard.writeText()`
 - [ ] Show a "Copied!" message for about 2 seconds
 - [ ] Ignore copy when there is no password
@@ -232,6 +239,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Make the copy icon a real `<button>` (keyboard accessible)
 
 ### Phase 5: Strength meter (client-side)
+
 - [ ] Create `src/utils/getStrength.js`
 - [ ] Score from length and number of character types used
 - [ ] Return a label: `TOO WEAK!`, `WEAK`, `MEDIUM`, `STRONG`
@@ -240,6 +248,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Remove the hard-coded `MEDIUM` label
 
 ### Phase 6: Styling & UX
+
 - [ ] Responsive layout (mobile first)
 - [ ] Style the slider track to show the filled portion
 - [ ] Hover and focus states for the button and checkboxes
@@ -248,6 +257,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Light/dark theme (optional)
 
 ### Phase 7: Accessibility
+
 - [ ] `<label>` elements tied to each checkbox
 - [ ] `aria-label` on the slider and copy button
 - [ ] Announce "Copied!" with `aria-live="polite"`
@@ -255,6 +265,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Keyboard-only walkthrough
 
 ### Phase 8: Frontend tests
+
 - [ ] Unit test `generatePassword` (length, types, at least one of each)
 - [ ] Unit test `getStrength` (each level)
 - [ ] Component test: slider updates the displayed length
@@ -268,28 +279,32 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 > Do this **after** Phase 5, so the app already works on its own.
 
 ### B1: Project setup
-- [ ] Move the React app into `frontend/` (`git mv` so history is kept)
-- [ ] Create `backend/` with a virtual environment (`python -m venv .venv`)
-- [ ] `pip install fastapi "uvicorn[standard]"` and save to `requirements.txt`
-- [ ] Add `backend/app/main.py` with `GET /api/health`
-- [ ] Run `uvicorn app.main:app --reload` and open `/docs`
+
+- [x] Move the React app into `frontend/` (`git mv` so history is kept)
+- [x] Create `backend/` with a virtual environment (`python -m venv .venv`)
+- [x] `pip install fastapi "uvicorn[standard]"` and save to `requirements.txt`
+- [x] Add `backend/app/main.py` with `GET /api/health`
+- [x] Run `uvicorn app.main:app --reload` and open `/docs`
 - [ ] Add `.venv/` and `__pycache__/` to `.gitignore`
 
 ### B2: Generate endpoint
-- [ ] Create `schemas.py` with a Pydantic `GenerateRequest` (`length` 1 to 100, four booleans)
+
+- [x] Create `schemas.py` with a Pydantic `GenerateRequest` (`length` 1 to 100, four booleans)
 - [ ] Reject requests where no character type is selected (HTTP 422)
-- [ ] Create `services/generator.py` using the `secrets` module
+- [x] Create `services/generator.py` using the `secrets` module
 - [ ] Guarantee at least one character per selected type, then shuffle
-- [ ] Add `POST /api/generate` returning `{ password }`
+- [x] Add `POST /api/generate` returning `{ password }`
 - [ ] Try it in the `/docs` page
 
 ### B3: Strength endpoint
-- [ ] Create `services/strength.py` (length + variety score)
-- [ ] Add `POST /api/strength` returning `{ score, label }`
+
+- [x] Create `services/strength.py` (length + variety score)
+- [x] Add `POST /api/strength` returning `{ score, label }`
 - [ ] Optional: try the `zxcvbn` library for a smarter score
 
 ### B4: Connect React to FastAPI
-- [ ] Add CORS in `main.py` for `http://localhost:3000`
+
+- [x] Add CORS in `main.py` for `http://localhost:3000`
 - [ ] Add `REACT_APP_API_URL` in `frontend/.env`
 - [ ] Call `/api/generate` with `fetch` when **Generate** is clicked
 - [ ] Add loading and error states
@@ -297,6 +312,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Call `/api/strength` and feed the meter
 
 ### B5: Hardening
+
 - [ ] Validate and cap all inputs
 - [ ] Add rate limiting (e.g. `slowapi`)
 - [ ] Make sure passwords are never logged
@@ -304,13 +320,15 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] Add basic security headers
 
 ### B6: Backend tests
+
 - [ ] Add `pytest` and `httpx`
-- [ ] Test `/api/health`
-- [ ] Test `/api/generate` (length, character types, bad input)
-- [ ] Test `/api/strength` (each level)
+- [x] Test `/api/health`
+- [x] Test `/api/generate` (length, character types, bad input)
+- [x] Test `/api/strength` (each level)
 - [ ] Use FastAPI's `TestClient`
 
 ### B7: Optional extras (portfolio boosters)
+
 - [ ] Add a database (SQLite + SQLModel)
 - [ ] User sign-up and login with JWT
 - [ ] Save password **labels or hints only**, never the plain passwords
@@ -318,6 +336,7 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 - [ ] "Check if a password was leaked" using the Have I Been Pwned range API
 
 ### B8: Deploy
+
 - [ ] Deploy the backend (Render, Railway or Fly.io)
 - [ ] Deploy the frontend (Vercel or Netlify)
 - [ ] Set environment variables on both
@@ -327,12 +346,14 @@ Work top to bottom, one phase at a time. Tick items off as you go.
 ---
 
 ## Part C: Polish & ship
+
 - [ ] Add a screenshot or GIF to this README
 - [ ] Run `npm run build` and fix warnings
 - [ ] Add the live demo link here
 - [ ] Add a LICENSE file
 
 ### 💡 Stretch ideas
+
 - [ ] "Exclude look-alike characters" option (`0 O l 1 I`)
 - [ ] Passphrase mode (random words)
 - [ ] Session-only password history
