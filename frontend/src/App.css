@@ -1,5 +1,6 @@
 .App {
-  width: 40rem;
+  width: min(40rem, 92vw);
+  margin: 0 auto;
   overflow: hidden;
 }
 h1 {
@@ -8,6 +9,32 @@ h1 {
 }
 .genPassword {
   font-size: 2.2rem;
+  overflow-wrap: anywhere;
+}
+.genPassword.placeholder {
+  color: var(--light-gray);
+}
+.copy-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.copied-text {
+  color: var(--lightgreen);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.copy-button {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+.copy-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 .copy-image {
   fill: none;
@@ -68,10 +95,31 @@ h1 {
   gap: 0.8rem;
 
   .color {
-    background-color: var(--yellow);
+    box-sizing: border-box;
     width: 1rem;
     height: 2rem;
   }
+  .color.empty {
+    background-color: transparent;
+    border: 2px solid var(--white);
+  }
+  .color.level-1 {
+    background-color: var(--red);
+  }
+  .color.level-2 {
+    background-color: var(--orange);
+  }
+  .color.level-3 {
+    background-color: var(--yellow);
+  }
+  .color.level-4 {
+    background-color: var(--lightgreen);
+  }
+}
+.error-message {
+  color: var(--red);
+  font-size: 1.3rem;
+  margin: 0 0 1.6rem;
 }
 /* GenButn */
 .genbtn {
@@ -81,4 +129,9 @@ h1 {
   border: none;
   padding: 1.8rem;
   font-weight: 600;
+  cursor: pointer;
+}
+.genbtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

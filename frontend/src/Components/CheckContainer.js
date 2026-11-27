@@ -1,24 +1,23 @@
-export default function CheckbtnContainer() {
+const OPTION_ITEMS = [
+  { key: "uppercase", label: "Include Uppercase Letters" },
+  { key: "lowercase", label: "Include Lowercase Letters" },
+  { key: "numbers", label: "Include Numbers" },
+  { key: "symbols", label: "Include Symbols" },
+];
+
+export default function CheckbtnContainer({ options, onToggleOption }) {
   return (
-    <>
-      <div className="checkbtnContainer bg">
-        <div className="checkboxBox">
-          <input type="checkbox" />
-          <span>{"Include Uppercase Letters"}</span>
-        </div>
-        <div className="checkboxBox">
-          <input type="checkbox" />
-          <span>{"Include Lowercase Letters"}</span>
-        </div>
-        <div className="checkboxBox">
-          <input type="checkbox" />
-          <span>{"Include Numbers"}</span>
-        </div>
-        <div className="checkboxBox">
-          <input type="checkbox" />
-          <span>{"Include Symbols"}</span>
-        </div>
-      </div>
-    </>
+    <div className="checkbtnContainer bg">
+      {OPTION_ITEMS.map(({ key, label }) => (
+        <label className="checkboxBox" key={key}>
+          <input
+            type="checkbox"
+            checked={Boolean(options[key])}
+            onChange={() => onToggleOption(key)}
+          />
+          <span>{label}</span>
+        </label>
+      ))}
+    </div>
   );
 }
